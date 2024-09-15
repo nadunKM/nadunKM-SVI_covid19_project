@@ -13,47 +13,51 @@ The data for this study was sourced from a reliable and widely used database (CD
 
 ## Data Cleaning
 
-[Data Cleaning Report](https://github.com/nadunKM/Fed_interest_analysis/blob/main/Data%20Wrangling.ipynb)
+[Data Cleaning Report](https://github.com/nadunKM/nadunKM-SVI_covid19_project/blob/main/Data%20Wrangling.ipynb)
 
-First, data was checked for missing, duplicated, and data types. There were no missing data, but some numeric data was recorded with string characters and converted to numeric data. Furthermore, the frequency of data was different, as data was recorded weekly, monthly, or quarterly. To be consistent, all data was converted to monthly data (the first day of each month). If the first day of the month is a holiday, the nearest data value was taken. The value of the nearest month was used for missing months in quarterly data.  The data starts on 01 - 01 - 1990 and ends on 03 - 01 - 2024.
+First, data was checked for missing, duplicated, and data types. Data was missing for some counties, which were excluded from the model. Also, some numeric data was recorded with string characters and converted to numeric data. Furthermore, the way county FIPS were recorded was inconsistent. Therefore, they were all changed to one format. Finally, groupby was used to aggregate data into specific categories.
 
 ## EDA
 
-[EDA Report](https://github.com/nadunKM/Fed_interest_analysis/blob/main/EDA.ipynb)
+[EDA Report](https://github.com/nadunKM/nadunKM-SVI_covid19_project/blob/main/EDA.ipynb)
 
-There are a few notable correlations. GDP, personal consumption expenditure, and S&P500 are highly correlated with each other and also with other variables such as bond yield, m2 money supply, our debt-to-GDP ratio, and CPI. Since GDP is already considered with the debt-to-GDP ratio, we can drop it. Personal consumption expenditure is also highly correlated with CPI and some other features. Therefore, considering all these factors, I decided to drop GDP and personal consumption expenditure and adjusted S&P500.
+From EDA, we can notice that the higher the poverty, unemployment, and minority percentages, the higher the COVID deaths. Also, it was observed that the areas with high African American and Hispanic populations have high unemployment and poverty.
+We can clearly see that the higher the socioeconomic burdens, the higher the health risks as well. Furthermore, when both of the above are higher, the COVID deaths are also high.
 
-![](https://github.com/nadunKM/Fed_interest_analysis/blob/main/Images/heatmap.png)
+![](https://github.com/nadunKM/nadunKM-SVI_covid19_project/blob/main/Images/pow.png)
+
+Another key observation is that health risk factors are linearly related to the number of COVID-19 deaths. The higher the health risk factors, the higher the COVID-19 deaths. 
+
+![](https://github.com/nadunKM/nadunKM-SVI_covid19_project/blob/main/Images/health_iss.png)
 
 #### Principal Component Analysis
 
-![](https://github.com/nadunKM/Fed_interest_analysis/blob/main/Images/pca_explcum.png)                ![](https://github.com/nadunKM/Fed_interest_analysis/blob/main/Images/pca_comp.png)
+![](https://github.com/nadunKM/nadunKM-SVI_covid19_project/blob/main/Images/pca.png)        ![](https://github.com/nadunKM/nadunKM-SVI_covid19_project/blob/main/Images/pca.png)   
 
 
-The above figures show that three principal components account for 78% of the variance. The first two principal components and the colormap depict federal interest rates. It is clear that about four clusters of interest rates are somewhat separable from each other. Finally, the figures show that bond yield, m2 money supply, CPI, and the debt to GDP ratio are significant features related to the first principal component. Unemployment, the US dollar index, and adjusted CPI are the most represented in the second principal component. The volatility index and the budget surplus/deficit are the highlights of the third principal component.
+The above figures show that two principal components account for 75% of the variance. There is somewhat non-linear separability between the two categories based on the plot of the PCA.
 
 ## Modeling
 
-[Modeling Report](https://github.com/nadunKM/Fed_interest_analysis/blob/main/EDA.ipynb)
+[Modeling Report](https://github.com/nadunKM/nadunKM-SVI_covid19_project/blob/main/Modeling.ipynb)
 
 ### Linear Regression
 
-For modeling, I used linear regression and XGBoost. For the metrics of success, I used mean squared error and R-squared. The dataset was split into train and test sets (80-20 split). Standard scaling was then used on the train-test split. The train test was used with both models via cross-validation, and the test set was held until the better model was picked. Five-fold cross-validation was used with both models. Overall, XGBboost was the best model. The first model used in the analysis is multiple linear regression. The mean squared error (MSE) and R-squared during the five-fold cross-validation steps were calculated, as shown in the following figures. The mean MSE is around 1.2, and the smallest MSE during cross-validation is 0.92. The mean R-squared is around 0.745, and the smallest R-squared during cross-validation is 0.735.
+For modeling, I used linear regression, XGBoost, and Random Forest Regressor. For the metrics of success, I used mean squared error and R-squared. The dataset was split into train and test sets (80-20 split). Standard scaling was then used on the train-test split. The train test was used with both models via cross-validation, and the test set was held until the better model was picked. Five-fold cross-validation was used with both models. Overall, the Random Forest Regressor was the best model. The first model used in the analysis is multiple linear regression. The mean squared error (MSE) and R-squared during the five-fold cross-validation steps were calculated. The mean MSE is around 130 and the mean R-squared is around 0.61.
 
-![](https://github.com/nadunKM/Fed_interest_analysis/blob/main/Images/linear_mse.png)
 
-### XGBoost
+### Random Forest Regressor
 
-The first step with XGBoost was hyperparameter tuning, Which was done using GridSearchCV. The best parameters for max_depth, colsample_bytree, and eta were 5,0.45 and 0.1, respectively. The best MSE during hyperparameter tuning was roughly 0.40, which is better than linear regression. Therefore, XGBoost was chosen as the preferred model. Finally, the model was used on the test set for the first time; the MSE was 0.08, and the R-squared was 0.98.
+The first step with Random Forest Regressor was hyperparameter tuning, Which was done using GridSearchCV. The best parameters for max_depth, max_features, and n_estimators were 13,log2 and 300, respectively. The best MSE during hyperparameter tuning was roughly 134, which is better than linear regression. Therefore, Random Forest Regressor was chosen as the preferred model. 
 
-![](https://github.com/nadunKM/Fed_interest_analysis/blob/main/Images/test_solutions.png)
 
 ### Metric Table
 
 | Method            | Mean Squared Error | R-Squared  |
 | -------------     |:-------------:| -----:|
-| Linear Regression | 0.40 | 0.735 |
-| XGBoost     | 0.08     |   0.98 |
+| Linear Regression | 17534 | -0.23 |
+| XGBoost     | 133     |   0.58 |
+| Random Forest Regressor    | 134     |   0.61 |
 
 
 
