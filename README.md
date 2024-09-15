@@ -6,7 +6,7 @@
 This project aims to develop a model to predict COVID-19 deaths in the USA based on socioeconomic and health-related factors. For example, this model uses socioeconomic factors such as unemployment, poverty levels, household burden, and demographic data. 
 Furthermore, we use health-related factors, such as chronic disease status. These data are available for almost every county in the USA. 
 
-![](https://github.com/nadunKM/Fed_interest_analysis/blob/main/Images/US%20Debt.png)
+![](https://github.com/nadunKM/nadunKM-SVI_covid19_project/blob/main/Images/unemp.png)
 
 ### Dataset
 The data for this study was sourced from a reliable and widely used database (CDC): [Census Tract Data (GIS Friendly Format), 2022](https://data.cdc.gov/500-Cities-Places/PLACES-Census-Tract-Data-GIS-Friendly-Format-2022-/shc3-fzig/about_data), [Social Vulnerability Data](https://www.atsdr.cdc.gov/placeandhealth/svi/documentation/SVI_documentation_2022.html). This is a reliable, widely used database for getting the above data. The data are from the Centers for Disease Control and Prevention (CDC), which is a government data source in the USA. I have already checked if the data is available for the features mentioned above, and they do exist. 
