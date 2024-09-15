@@ -32,7 +32,7 @@ Another key observation is that health risk factors are linearly related to the 
 
 #### Principal Component Analysis
 
-![](https://github.com/nadunKM/nadunKM-SVI_covid19_project/blob/main/Images/pca.png)        ![](https://github.com/nadunKM/nadunKM-SVI_covid19_project/blob/main/Images/pca.png)   
+![](https://github.com/nadunKM/nadunKM-SVI_covid19_project/blob/main/Images/expl.png)        ![](https://github.com/nadunKM/nadunKM-SVI_covid19_project/blob/main/Images/pca.png)   
 
 
 The above figures show that two principal components account for 75% of the variance. There is somewhat non-linear separability between the two categories based on the plot of the PCA.
