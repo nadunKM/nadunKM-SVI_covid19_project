@@ -1,14 +1,15 @@
-# Predicting Federal Interest Rates Based on Economic Factors
+# Predicting COVID-19 Deaths in the USA Based on Socioeconomic and Health Risk Factors
 
 ![](https://github.com/nadunKM/nadunKM-SVI_covid19_project/blob/main/Images/Covid_deaths.png)
 
 ## Introduction 
-This project aims to develop a model that can predict federal interest rates in the USA based on macroeconomic factors. The federal interest rate is a critical tool that drives U.S. monetary policy and affects every person's life. Interest rates play a crucial role in deciding everything from the rate of return on savings accounts to the rates of borrowing, for example, credit card debt. The federal rates depend on many factors, such as unemployment, GDP growth, and US dollar rates. However, US debt has been rising for years and has been affecting macroeconomic factors for an extended period. Therefore, I incorporated US public debt into the analysis to see if it has an effect.
+This project aims to develop a model to predict COVID-19 deaths in the USA based on socioeconomic and health-related factors. For example, this model uses socioeconomic factors such as unemployment, poverty levels, household burden, and demographic data. 
+Furthermore, we use health-related factors, such as chronic disease status. These data are available for almost every county in the USA. 
 
 ![](https://github.com/nadunKM/Fed_interest_analysis/blob/main/Images/US%20Debt.png)
 
 ### Dataset
-The data for this study, crucial for understanding the impact of US debt on the federal interest rates, are sourced from a reliable and widely used database: [Federal Reserve Economic Data (FRED)](https://fred.stlouisfed.org/). This database has been providing comprehensive data since the 1920s.
+The data for this study was sourced from a reliable and widely used database (CDC): [Census Tract Data (GIS Friendly Format), 2022](https://data.cdc.gov/500-Cities-Places/PLACES-Census-Tract-Data-GIS-Friendly-Format-2022-/shc3-fzig/about_data), [Social Vulnerability Data](https://www.atsdr.cdc.gov/placeandhealth/svi/documentation/SVI_documentation_2022.html). This is a reliable, widely used database for getting the above data. The data are from the Centers for Disease Control and Prevention (CDC), which is a government data source in the USA. I have already checked if the data is available for the features mentioned above, and they do exist. 
 
 ## Data Cleaning
 
