@@ -1,6 +1,6 @@
 # Predicting Federal Interest Rates Based on Economic Factors
 
-![](https://github.com/nadunKM/Fed_interest_analysis/blob/main/Images/Fed_interest_rates.png)
+![](https://github.com/nadunKM/nadunKM-SVI_covid19_project/blob/main/Images/Covid_deaths.png)
 
 ## Introduction 
 This project aims to develop a model that can predict federal interest rates in the USA based on macroeconomic factors. The federal interest rate is a critical tool that drives U.S. monetary policy and affects every person's life. Interest rates play a crucial role in deciding everything from the rate of return on savings accounts to the rates of borrowing, for example, credit card debt. The federal rates depend on many factors, such as unemployment, GDP growth, and US dollar rates. However, US debt has been rising for years and has been affecting macroeconomic factors for an extended period. Therefore, I incorporated US public debt into the analysis to see if it has an effect.
